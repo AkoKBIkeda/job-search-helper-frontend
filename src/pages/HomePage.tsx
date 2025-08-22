@@ -8,6 +8,8 @@ import Button from "../components/Buttons";
 const HomePage = () => {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
+
+  // If user already has token, redirect to dashboard
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/dashboard");

@@ -2,7 +2,7 @@
 // Fetch user data
 // Login & Logout
 
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants";
 
@@ -13,16 +13,23 @@ interface User {
 }
 
 export function useAuth() {
-    const [token, setToken] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [ready, setReady] = useState<boolean>(false);
+  const hasFetched = useRef<boolean>(false);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
-      setIsAuthenticated(true);
-      fetchUser(storedToken);
+    if (!hasFetched.current) {
+      hasFetched.current = true;
+      if (storedToken) {
+        setToken(storedToken);
+        setIsAuthenticated(true);
+        fetchUser(storedToken);
+        return;
+      }
+      setReady(true);
     }
   }, []);
 
@@ -45,6 +52,7 @@ export function useAuth() {
       console.error("Error fetching user data:", error);
       logout();
     }
+    setReady(true);
   };
 
   const login = (newToken: string) => {
@@ -65,6 +73,7 @@ export function useAuth() {
     token,
     user,
     isAuthenticated,
+    ready,
     login,
     logout,
   };

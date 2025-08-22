@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,7 +26,6 @@ const LoginForm = () => {
   } = useForm<LoginFormFields>({
     resolver: zodResolver(loginSchema),
   });
-
   const onSubmit: SubmitHandler<LoginFormFields> = async (data) => {
     try {
       console.log("Login data submitted:", data);
@@ -37,7 +36,6 @@ const LoginForm = () => {
         })
         .then((response) => {
           console.log("Login successful:", response.data);
-          // Assuming the response contains a token
           const token = response.data.token;
           localStorage.setItem("token", token);
           login(token);
@@ -45,7 +43,11 @@ const LoginForm = () => {
         });
     } catch (error) {
       console.error("Login error:", error);
-      setError("root", { message: "Login failed" });
+      let message = "Login failed";
+      if (axios.isAxiosError(error) && error.response?.data?.message) {
+        message = error.response.data.message;
+      }
+      setError("root", { message });
     }
   };
 
