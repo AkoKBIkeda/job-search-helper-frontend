@@ -10,6 +10,9 @@ module.exports = {
         primary: '#4C0A0B',
         secondary: '#14171A',
       },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
