@@ -28,14 +28,12 @@ const LoginForm = () => {
   });
   const onSubmit: SubmitHandler<LoginFormFields> = async (data) => {
     try {
-      console.log("Login data submitted:", data);
       await axios
         .post(BASE_URL + "/auth/", {
           username: data.username,
           password: data.password,
         })
         .then((response) => {
-          console.log("Login successful:", response.data);
           const token = response.data.token;
           localStorage.setItem("token", token);
           login(token);

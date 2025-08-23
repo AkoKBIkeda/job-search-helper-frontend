@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useAuth } from "../hooks/useAuth";
+import React from "react";
+// import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "../components/Buttons";
-// import axios from "axios";
+import useRedirectAuthenticated from "../hooks/useRedirectAuthenticated";
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
 
-  // If user already has token, redirect to dashboard
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/dashboard");
-    }
-  }, [isAuthenticated, navigate]);
+  // If user already has token, redirect to dashboard --> created custom hook
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate("/dashboard");
+  //   }
+  // }, [isAuthenticated, navigate]);
+  useRedirectAuthenticated();
 
   return (
     <div className="p-10 space-y-4 max-w-full text-center">
