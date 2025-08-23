@@ -2,7 +2,7 @@ import React, { useState, useEffect, use } from "react";
 import Header from "../components/Header";
 import { useAuth } from "../hooks/useAuth";
 import { Navigate, useNavigate } from "react-router-dom";
-import CompanyForm from "../forms/CompanyForm";
+import CompanyForm from "../forms/AddCompanyForm";
 
 const DashboardPage = () => {
   const { user, isAuthenticated, ready } = useAuth();
@@ -13,7 +13,7 @@ const DashboardPage = () => {
     if (ready && !isAuthenticated) {
       navigate("/");
     }
-  }, [isAuthenticated, navigate, ready ]);
+  }, [isAuthenticated, navigate, ready]);
 
   if (!ready || (isAuthenticated && user === null)) {
     return <div className="text-center">Loading...</div>;
@@ -24,7 +24,7 @@ const DashboardPage = () => {
       <Header />
       <h1 className="text-primary text-4xl font-bold">Dashboard</h1>
       <p className="text-primary text-lg font-semibold">
-        Hi, { user?.username }! View and manage your job research here.
+        Hi, {user?.username}! View and manage your job research here.
       </p>
     </div>
   );

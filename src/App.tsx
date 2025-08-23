@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
-import CompanyForm from "./forms/CompanyForm";
+import CompanyForm from "./forms/AddCompanyForm";
 function App() {
   return (
     <Router>
