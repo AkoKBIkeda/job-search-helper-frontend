@@ -41,7 +41,7 @@ const SignupForm = () => {
           alert(response.data.message || "Signup successful!");
           const token = response.data.token;
           localStorage.setItem("token", token);
-        //   login(token);
+          //   login(token);
           navigate("/dashboard");
         });
     } catch (error) {
@@ -61,19 +61,22 @@ const SignupForm = () => {
           {...register("username")}
           type="text"
           placeholder="Username"
-          className="max-w-sm w-full border border-[#ccc] p-2"
+          className="max-w-sm w-full border border-[#4C0A0B] p-2"
         />
       </div>
       {errors.username && (
         <div className="text-red-500">{errors.username.message}</div>
       )}
       <div>
-        <p className="text-blue-800">Maximum length is 50 characters <br /> Contact us if your email is longer!</p>
+        <p className="text-blue-800">
+          Maximum length is 50 characters <br /> Contact us if your email is
+          longer!
+        </p>
         <input
           {...register("email")}
           type="email"
           placeholder="Email"
-          className="max-w-sm w-full border border-[#ccc] p-2"
+          className="max-w-sm w-full border border-[#4C0A0B] p-2"
         />
       </div>
       {errors.email && (
@@ -85,7 +88,7 @@ const SignupForm = () => {
           {...register("password")}
           type="password"
           placeholder="Password"
-          className="max-w-sm w-full border border-[#ccc] p-2"
+          className="max-w-sm w-full border border-[#4C0A0B] p-2"
         />
       </div>
       {errors.password && (
