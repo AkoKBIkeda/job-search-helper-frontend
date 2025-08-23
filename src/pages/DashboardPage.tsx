@@ -2,6 +2,7 @@ import React, { useState, useEffect, use } from "react";
 import Header from "../components/Header";
 import { useAuth } from "../hooks/useAuth";
 import { Navigate, useNavigate } from "react-router-dom";
+import CompanyForm from "../forms/CompanyForm";
 
 const DashboardPage = () => {
   const { user, isAuthenticated, ready } = useAuth();
