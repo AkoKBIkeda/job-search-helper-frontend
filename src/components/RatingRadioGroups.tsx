@@ -4,11 +4,13 @@ import { Controller, Control } from "react-hook-form";
 type RatingRadioGroupsProps = {
   control: Control<any>;
   name: string;
+  label: string;
 };
 
 export default function RatingRadioGroups({
   control,
-  name,
+  name, 
+  label,
 }: RatingRadioGroupsProps) {
   return (
     <Controller
@@ -18,7 +20,7 @@ export default function RatingRadioGroups({
         <div className="flex flex-col items-center gap-4">
           <div>
             <label className="text-primary text-sm font-semibold">
-              {name} Rating
+              {label}
             </label>
           </div>
           {/* <div className="flex flex-col gap-4"></div> */}
@@ -28,7 +30,12 @@ export default function RatingRadioGroups({
                 key={value}
                 className="flex flex-col items-center text-primary"
               >
-                <input type="radio" value={value} />
+                <input
+                  type="radio"
+                  value={value.toString()}
+                  checked={field.value === value}
+                  onChange={(e) => field.onChange(Number(e.target.value))}
+                />
                 <span className="ml-2">{value}</span>
               </label>
             ))}
