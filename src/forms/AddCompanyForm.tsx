@@ -70,9 +70,10 @@ export default function AddCompanyForm() {
         });
     } catch (error) {
       if (isAxiosError(error)) {
-        console.error("Error status:", error.response?.status);
-        console.error("Error data:", error.response?.data);
-        alert("Error: " + JSON.stringify(error.response?.data, null, 2));
+        const msg =
+          error.response?.data?.message || error.response?.data?.error;
+        console.error("Error status:", msg);
+        alert("Error: " + JSON.stringify(msg, null, 2));
       } else {
         console.error("Unknown error:", error);
       }
@@ -83,10 +84,8 @@ export default function AddCompanyForm() {
     <div className="p-10 space-y-4 max-w-full text-center">
       <Header />
       <div className="flex flex-col items-center">
-        <h1 className="text-primary text-4xl font-bold">Add New Company</h1>
-        <h2 className="text-primary text-lg font-semibold">
-          Register a new company to track your job research!
-        </h2>
+        <h1>Add New Company</h1>
+        <h2>Register a new company to track your job research!</h2>
       </div>
       <form
         className="flex flex-col p-10 space-y-4 mx-auto max-w-full items-center"

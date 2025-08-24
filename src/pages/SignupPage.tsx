@@ -8,7 +8,7 @@ export default function SignupPage() {
   return (
     <div className="p-10 space-y-4 max-w-full text-center">
       <Header />
-      <h1 className="text-primary text-4xl font-bold">Sign Up Page</h1>
+      <h1>Sign Up Page</h1>
       <p className="text-primary text-lg font-semibold">
         Create an account to get started!
       </p>

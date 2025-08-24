@@ -21,7 +21,7 @@ export const CompanyList = ({ companies }: Props) => {
   };
   return (
     <div>
-      <h2 className="text-primary text-2xl font-bold">Companies List</h2>
+      <h2>Companies List</h2>
       <div className="max-w-full border border-primary m-10">
         <table className="min-w-full divide-y divide-primary text-left">
           <thead className="bg-[#E5DC9F] text-primary text-center">

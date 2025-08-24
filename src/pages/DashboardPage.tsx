@@ -82,8 +82,8 @@ const DashboardPage = () => {
   return (
     <div className="p-10 space-y-4 max-w-full text-center">
       <Header />
-      <h1 className="text-primary text-4xl font-bold">Dashboard</h1>
-      <h2 className="text-primary text-lg font-semibold">
+      <h1>Dashboard</h1>
+      <h2>
         Hi, {user?.username}! View and manage your job research here.
       </h2>
       <div className="flex flex-col items-end lg:pr-28">
@@ -92,10 +92,18 @@ const DashboardPage = () => {
         </Button>
       </div>
       <div>
-        {loading ? (
-          <div className="text-center">Loading companies...</div>
+        {companies.length > 0 ? (
+          <>
+            {loading ? (
+              <div className="text-center">Loading companies...</div>
+            ) : (
+              <CompanyList companies={companies} />
+            )}
+          </>
         ) : (
-          <CompanyList companies={companies} />
+          <div className="text-center">
+            <h2>Start searching for companies!</h2>
+          </div>
         )}
       </div>
     </div>

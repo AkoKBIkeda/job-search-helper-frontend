@@ -170,8 +170,8 @@ export default function EditCompanyForm() {
     <div className="p-10 space-y-4 max-w-full text-center">
       <Header />
       <div className="flex flex-col items-center">
-        <h1 className="text-primary text-4xl font-bold">Edit Company</h1>
-        <h2 className="text-primary text-lg font-semibold">
+        <h1>Edit Company</h1>
+        <h2>
           Update the company information
         </h2>
         <div className="flex items-center justify-between space-x-10">

@@ -45,8 +45,16 @@ const SignupForm = () => {
           navigate("/dashboard");
         });
     } catch (error) {
-      console.error("Signup error:", error);
-      setError("root", { message: "Signup failed" });
+      if (axios.isAxiosError(error) && error.response?.data?.message) {
+        const msg =
+          error.response?.data?.message || error.response?.data?.error;
+        setError("root", { message: msg });
+        alert("Signup failed: " + JSON.stringify(msg, null, 2));
+      } else {
+        console.error("Signup error:", error);
+        setError("root", { message: "Signup failed" });
+        alert("Signup failed");
+      }
     }
   };
 
