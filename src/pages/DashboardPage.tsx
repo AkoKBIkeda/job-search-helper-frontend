@@ -83,9 +83,9 @@ const DashboardPage = () => {
     <div className="p-10 space-y-4 max-w-full text-center">
       <Header />
       <h1 className="text-primary text-4xl font-bold">Dashboard</h1>
-      <p className="text-primary text-lg font-semibold">
+      <h2 className="text-primary text-lg font-semibold">
         Hi, {user?.username}! View and manage your job research here.
-      </p>
+      </h2>
       <div className="flex flex-col items-end lg:pr-28">
         <Button onClick={() => navigate("/dashboard/add-company")}>
           Add Company

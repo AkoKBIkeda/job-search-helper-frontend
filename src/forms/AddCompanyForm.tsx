@@ -82,6 +82,12 @@ export default function AddCompanyForm() {
   return (
     <div className="p-10 space-y-4 max-w-full text-center">
       <Header />
+      <div className="flex flex-col items-center">
+        <h1 className="text-primary text-4xl font-bold">Add New Company</h1>
+        <h2 className="text-primary text-lg font-semibold">
+          Register a new company to track your job research!
+        </h2>
+      </div>
       <form
         className="flex flex-col p-10 space-y-4 mx-auto max-w-full items-center"
         onSubmit={handleSubmit(onSubmit)}
@@ -90,12 +96,10 @@ export default function AddCompanyForm() {
           register={register}
           errors={errors}
           control={control}
-          title="Add New Company"
-          description="Register a new company to track your job research!"
         />
         <div className="flex flex-col items-center">
           <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Adding company..." : "Add Company"}
+            {isSubmitting ? "Adding..." : "Add Company"}
           </Button>
         </div>
       </form>

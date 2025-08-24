@@ -12,34 +12,19 @@ import {
 
 type CompanyFormBaseProps = {
   register: UseFormRegister<CompanyFormFields>;
-  //  register: SubmitHandler<CompanyFormFields>;
   errors: FieldErrors<CompanyFormFields>;
   control: Control<CompanyFormFields>;
-  title: string;
-  description: string;
-  // isSubmitting: boolean;
-  // buttonLabel: string;
-  // onSubmit: (e?: React.BaseSyntheticEvent) => void;
 };
 
 export default function CompanyFormBaseFields({
   register,
   errors,
   control,
-  title,
-  description,
 }: CompanyFormBaseProps) {
   return (
     <>
       <div className="flex flex-col w-full mx-auto max-w-3xl gap-4">
         <div className="flex flex-col items-center">
-          <h1 className="text-primary text-4xl font-bold">{title}</h1>
-          <p className="text-primary text-lg font-semibold">{description}</p>
-        </div>
-        <div className="flex flex-col items-center">
-          {/* <div className="flex flex-col items-start text-red-800 text-sm text-left mb-1">
-            <p>*Required</p>
-          </div> */}
           <input
             {...register("name")}
             type="text"
@@ -159,18 +144,5 @@ export default function CompanyFormBaseFields({
         )}
       </div>
     </>
-    // <form
-    //   className="flex flex-col p-10 space-y-4 mx-auto max-w-full items-center"
-    //   onSubmit={onSubmit}
-    // >
-    //   <Header />
-
-    // {/* <div className="flex flex-col items-center">
-    //   <Button type="submit" disabled={isSubmitting}>
-    //     {buttonLabel}
-    //   </Button>
-    // </div> */}
-
-    // </form>
   );
 }
