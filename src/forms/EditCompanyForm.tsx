@@ -80,7 +80,10 @@ export default function EditCompanyForm() {
           }
         )
         .then((response) => {
-          console.log("Company updated successfully:", JSON.stringify(response.data, null, 2));
+          console.log(
+            "Company updated successfully:",
+            JSON.stringify(response.data, null, 2)
+          );
           alert("Company updated successfully!");
         });
     } catch (error) {
@@ -94,8 +97,29 @@ export default function EditCompanyForm() {
     }
   };
 
-  const onDelete = async () => {
-    // delete
+  const deleteCompany = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      await axios
+        .delete(BASE_URL + "/companies/" + id + "/", {
+          headers: {
+            Authorization: "Token " + token,
+          },
+        })
+        .then((response) => {
+          console.log("Company deleted successfully:", response.data);
+          alert("Company deleted successfully!");
+          navigate("/dashboard");
+        });
+    } catch (error) {
+      if (isAxiosError(error)) {
+        console.error("Error status:", error.response?.status);
+        console.error("Error data:", error.response?.data);
+        alert("Error: " + JSON.stringify(error.response?.data, null, 2));
+      } else {
+        console.error("Unknown error:", error);
+      }
+    }
   };
 
   // fetch current company data from backend
@@ -145,6 +169,16 @@ export default function EditCompanyForm() {
   return (
     <div className="p-10 space-y-4 max-w-full text-center">
       <Header />
+      <div className="flex flex-col items-center">
+        <h1 className="text-primary text-4xl font-bold">Edit Company</h1>
+        <h2 className="text-primary text-lg font-semibold">
+          Update the company information
+        </h2>
+        <div className="flex items-center justify-between space-x-10">
+          <div className="md:w-[200px]"></div>
+          <Button onClick={() => deleteCompany()}>Delete</Button>
+        </div>
+      </div>
       <form
         className="flex flex-col p-10 space-y-4 mx-auto max-w-full items-center"
         onSubmit={handleSubmit(onSubmit)}
@@ -153,14 +187,10 @@ export default function EditCompanyForm() {
           register={register}
           errors={errors}
           control={control}
-          title="Edit Company"
-          description="Update the company information."
         />
-        <div className="flex flex-col items-center">
-          <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Updating company..." : "Update"}
-          </Button>
-        </div>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Updating..." : "Update"}
+        </Button>
       </form>
     </div>
   );
