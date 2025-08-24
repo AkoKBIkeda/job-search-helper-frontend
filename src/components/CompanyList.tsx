@@ -42,7 +42,7 @@ export const CompanyList = ({ companies }: Props) => {
               <tr
                 key={company.id}
                 onClick={() => handleClick(company.id)}
-                className={"cursor-pointer hover:bg-[#EAE7D3] transaction"}
+                className={"cursor-pointer hover:bg-[#EAE7D3] transition"}
               >
                 <td className="border-r border-dotted border-gray-800 px-4 py-2">
                   {company.name}

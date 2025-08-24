@@ -1,5 +1,4 @@
-import React, { useState, useEffect, use } from "react";
-import Header from "../components/Header";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import CompanyForm from "../forms/AddCompanyForm";
@@ -7,6 +6,7 @@ import AddCompanyForm from "../forms/AddCompanyForm";
 import Button from "../components/Buttons";
 import { CompanyList } from "../components/CompanyList";
 import { BASE_URL } from "../constants";
+import HeaderWithLogout from "../components/HeaderWithLogout";
 
 // Set type for TS
 type Company = {
@@ -81,11 +81,9 @@ const DashboardPage = () => {
 
   return (
     <div className="p-10 space-y-4 max-w-full text-center">
-      <Header />
+      <HeaderWithLogout />
       <h1>Dashboard</h1>
-      <h2>
-        Hi, {user?.username}! View and manage your job research here.
-      </h2>
+      <h2>Hi, {user?.username}! View and manage your job research here.</h2>
       <div className="flex flex-col items-end lg:pr-28">
         <Button onClick={() => navigate("/dashboard/add-company")}>
           Add Company

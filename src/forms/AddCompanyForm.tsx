@@ -8,7 +8,7 @@ import RatingRadioGroups from "../components/RatingRadioGroups";
 import axios, { isAxiosError } from "axios";
 import { BASE_URL } from "../constants";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
+import HeaderWithLogout from "../components/HeaderWithLogout";
 import { companySchema, CompanyFormFields } from "../schemas/companySchema";
 import CompanyFormBaseFields from "./CompanyFormBaseFields";
 
@@ -82,7 +82,7 @@ export default function AddCompanyForm() {
 
   return (
     <div className="p-10 space-y-4 max-w-full text-center">
-      <Header />
+      <HeaderWithLogout />
       <div className="flex flex-col items-center">
         <h1>Add New Company</h1>
         <h2>Register a new company to track your job research!</h2>

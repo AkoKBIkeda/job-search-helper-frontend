@@ -17,7 +17,7 @@ h2 {
 }
 
 /* Just my preference */
-h1, h2, h3, h4, h5, h6, img, button{
+h1, h2, h3, h4, h5, h6 {
   user-select: none;
   cursor: default;
 }
