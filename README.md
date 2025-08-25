@@ -7,8 +7,9 @@ It helps people to record the job they are interested in.
 This platform has basic operations as per the Chingu Solo Project requirement.  
 It makes it easier for registered users to keep track of their job or company research.
 
-<hr>
 Sample screenshot:
+
+<hr>
 
 ![Dashboard Preview](./assets/dashboard_jsh.png)
 
