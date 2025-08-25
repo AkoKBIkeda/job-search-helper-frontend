@@ -1,2 +1,3 @@
-// export const BASE_URL = "http://localhost:8000";
-export const BASE_URL = "https://job-search-helper-fndk.onrender.com";  // Render's Url added
+export const BASE_URL: string = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
+export {}; 

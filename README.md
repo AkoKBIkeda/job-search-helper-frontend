@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Job Search Helper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This MVP was created to join Chingu Voyage!  
+It helps people to record the job they are interested in.
+This platform has basic operations as per the Chingu Solo Project requirement.  
+It makes it easier for registered users to keep track of their job or company research.  
+![Dashboard Preview](./assets/dashboard_jsh.png)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+User can
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Sign up, login, and logout
+- Add, edit, delete Company information (name, address, website, job title, work mode, notes, and ratings for culture, mission, growth support, and career opportunity)
+- See the company list to quickly view name, website, and job title and click to edit them.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+For the company attributes, I only made the company name to be required, so users can list the companies that they are interested in first, and research about them later.
 
-### `npm test`
+## How to run the project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Live version:** [Job Search Helper](https://your-job-search-helper.vercel.app/)  
+_\*The backend is deployed on Render's free tier, so it may take a few minutes to get it back online first!_
 
-### `npm run build`
+**Run locally:**  
+After clone my project from this repo, move do the project directly  
+`cd job-search-helper`  
+Install dependencies  
+`npm install`  
+Create .env file in the project directly and add  
+`REACT_APP_API_URL=http://localhost:8000`  
+Start the dev server  
+`npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Frontend**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- React DOM
+- React Router DOM
+- Axios
+- React Hook Form
+- Tailwind CSS
+- TypeScript
+- Zod
 
-### `npm run eject`
+**Backend**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Django REST Framework (check [Job Search Helper backend repo](https://github.com/AkoKBIkeda/job-search-helper-backend))
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Work
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Since this is a bare MVP, there are so many things that can be improved. To list some:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Add descriptions for how to use, what they can do on the platform
+- Improve labelling, wording, alert messages, layout, and design
+- Add "Forget Password" function
+- Sum ratings to display how much each job is matching for the user's preference on the Company List  
+  etc., etc., etc.  
+  If you have any ideas to add to this platform, please feel free to reach out!
